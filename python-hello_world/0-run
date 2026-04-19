@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 filename.py
+print("C is fun!")
