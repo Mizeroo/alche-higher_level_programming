@@ -3,7 +3,7 @@ def safe_print_division(a, b):
     quotient = None
     try:
         quotient = a / b
-        print("Inside result: {}".format( quotient))
+        print("Inside result: {}".format(quotient))
     except ZeroDivisionError:
         print("Inside result: None")
     finally:
