@@ -1,14 +1,18 @@
 #!/usr/bin/python3
 """Script that adds arguments to a Python list saved as JSON."""
+import json
+import os
 import sys
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
-try:
-    my_list = load_from_json_file(filename)
-except FileNotFoundError:
+
+if os.path.exists(filename):
+    with open(filename, "r", encoding="utf-8") as f:
+        my_list = json.load(f)
+else:
     my_list = []
 
 my_list.extend(sys.argv[1:])
-save_to_json_file(my_list, filename)
+
+with open(filename, "w", encoding="utf-8") as f:
+    json.dump(my_list, f)
