@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script that adds arguments to a Python list saved as JSON."""
+"""Script  adds arguments to  Python list saved as JSON."""
 import json
 import os
 import sys
