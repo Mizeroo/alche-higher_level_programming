@@ -4,9 +4,15 @@ const request = require('request');
 const url = process.argv[2];
 
 request(url, function (error, response, body) {
-  const data = JSON.parse(body);
-  const films = data.results;
+  if (error) {
+    console.log(error);
+    return;
+  }
 
+  const data = JSON.parse(body);
+  console.log('Number of films:', data.results ? data.results.length : 'no results key');
+
+  const films = data.results;
   let count = 0;
 
   for (const film of films) {
