@@ -10,13 +10,11 @@ request(url, function (error, response, body) {
   }
 
   const data = JSON.parse(body);
-  console.log('Number of films:', data.results ? data.results.length : 'no results key');
-
   const films = data.results;
   let count = 0;
 
   for (const film of films) {
-    if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
+    if (film.characters.some((character) => character.includes('/people/18/'))) {
       count++;
     }
   }
