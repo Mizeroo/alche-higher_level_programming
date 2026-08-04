@@ -4,6 +4,11 @@ const request = require('request');
 const url = process.argv[2];
 
 request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
+    return;
+  }
+
   const todos = JSON.parse(body);
   const completedCounts = {};
 
